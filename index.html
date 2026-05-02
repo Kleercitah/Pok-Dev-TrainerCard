@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokéDev — TrainerCard v2.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="video-background">
+    <div class="video-foreground">
+      <iframe id="bg-video" src="https://www.youtube.com/embed/8RXz6Uru9WY?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=8RXz6Uru9WY&enablejsapi=1" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    </div>
+  </div>
+
+  <button id="muteToggle" class="mute-btn pulse-anim" title="Activar/Desactivar Sonido">
+    <svg id="icon-muted" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+    </svg>
+    <svg id="icon-unmuted" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+    </svg>
+    <span id="muteText" class="mute-text">¡Oír Opening!</span>
+  </button>
+
+  <div class="app-wrapper">
+
+    <header class="site-header">
+      <div class="logo-area">
+        <span class="logo-icon">⬟</span>
+        <span class="logo-text">PokéDev</span>
+      </div>
+      <p class="logo-sub">Sistema de Registro de Entrenadores</p>
+    </header>
+
+    <main class="form-section" id="formSection">
+
+      <div class="form-card">
+        <h2 class="form-title">Crea tu TrainerCard</h2>
+        <p class="form-subtitle">Ingresa tus datos y genera tu tarjeta oficial de entrenador.</p>
+
+        <form id="formTrainer" novalidate>
+
+          <h3 class="form-section-title">Datos del Entrenador</h3>
+          
+          <div class="field-group">
+            <label for="inputNombre">Nombre del Entrenador</label>
+            <input type="text" id="inputNombre" placeholder="Ej: Red, Blue, Misty..." />
+          </div>
+
+          <div class="field-group">
+            <label for="inputRegion">Región de Origen</label>
+            <div class="custom-select-wrapper">
+              <select id="inputRegion" style="display:none;">
+                <option value="">— Selecciona una región —</option>
+                <option value="Kanto">Kanto</option>
+                <option value="Johto">Johto</option>
+                <option value="Hoenn">Hoenn</option>
+                <option value="Sinnoh">Sinnoh</option>
+                <option value="Unova">Unova</option>
+                <option value="Kalos">Kalos</option>
+              </select>
+              <div class="custom-select" id="customRegion">
+                <div class="custom-select-trigger">
+                  <span>— Selecciona una región —</span>
+                  <div class="arrow"></div>
+                </div>
+                <div class="custom-options">
+                  <span class="custom-option" data-value="Kanto">
+                    <div class="region-icon">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="#e63946"><polygon points="7,2 17,2 22,7 22,17 17,22 7,22 2,17 2,7"/></svg>
+                    </div> Kanto
+                  </span>
+                  <span class="custom-option" data-value="Johto">
+                    <div class="region-icon">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="#f4a261"><polygon points="12,2 22,7 22,17 12,22 2,17 2,7"/></svg>
+                    </div> Johto
+                  </span>
+                  <span class="custom-option" data-value="Hoenn">
+                    <div class="region-icon">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="#2a9d8f"><path d="M12 2S2 10 2 16a10 10 0 0020 0c0-6-10-14-10-14z"/></svg>
+                    </div> Hoenn
+                  </span>
+                  <span class="custom-option" data-value="Sinnoh">
+                    <div class="region-icon">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="#6a4fc8"><polygon points="12,2 22,12 12,22 2,12"/></svg>
+                    </div> Sinnoh
+                  </span>
+                  <span class="custom-option" data-value="Unova">
+                    <div class="region-icon">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="#aaaaaa"><rect x="3" y="3" width="18" height="18" rx="4"/></svg>
+                    </div> Unova
+                  </span>
+                  <span class="custom-option" data-value="Kalos">
+                    <div class="region-icon">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="#d62bd6"><polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/></svg>
+                    </div> Kalos
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="form-section-title">Datos del Pokémon Insignia</h3>
+
+          <div class="field-group">
+            <label for="inputPokeNombre">Nombre del Pokémon</label>
+            <input type="text" id="inputPokeNombre" placeholder="Ej: Charizard, Gengar..." />
+          </div>
+
+          <div class="field-group">
+            <label for="inputTipo">Tipo Principal</label>
+            <div class="custom-select-wrapper">
+              <select id="inputTipo" style="display:none;">
+                <option value="">— Selecciona un tipo —</option>
+                <option value="Fuego">Fuego</option>
+                <option value="Agua">Agua</option>
+                <option value="Planta">Planta</option>
+                <option value="Eléctrico">Eléctrico</option>
+                <option value="Psíquico">Psíquico</option>
+                <option value="Sombra">Sombra</option>
+              </select>
+              <div class="custom-select" id="customTipo">
+                <div class="custom-select-trigger">
+                  <span>— Selecciona un tipo —</span>
+                  <div class="arrow"></div>
+                </div>
+                <div class="custom-options">
+                  <span class="custom-option" data-value="Fuego">
+                    <div class="type-icon fire-icon"><img src="https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/fire.svg" alt="Fuego"></div> Fuego
+                  </span>
+                  <span class="custom-option" data-value="Agua">
+                    <div class="type-icon water-icon"><img src="https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/water.svg" alt="Agua"></div> Agua
+                  </span>
+                  <span class="custom-option" data-value="Planta">
+                    <div class="type-icon grass-icon"><img src="https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/grass.svg" alt="Planta"></div> Planta
+                  </span>
+                  <span class="custom-option" data-value="Eléctrico">
+                    <div class="type-icon electric-icon"><img src="https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/electric.svg" alt="Eléctrico"></div> Eléctrico
+                  </span>
+                  <span class="custom-option" data-value="Psíquico">
+                    <div class="type-icon psychic-icon"><img src="https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/psychic.svg" alt="Psíquico"></div> Psíquico
+                  </span>
+                  <span class="custom-option" data-value="Sombra">
+                    <div class="type-icon dark-icon"><img src="https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/dark.svg" alt="Sombra"></div> Sombra
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="inputNivel">Nivel (1-100)</label>
+            <input type="number" id="inputNivel" min="1" max="100" placeholder="Ej: 78" />
+          </div>
+
+          <div class="field-group">
+            <label for="inputMovimiento">Movimiento Especial</label>
+            <input type="text" id="inputMovimiento" placeholder="Ej: Lanzallamas" />
+          </div>
+
+          <div class="field-group">
+            <label for="inputFrase">Frase de Combate</label>
+            <input type="text" id="inputFrase" placeholder="Ej: ¡Quémalos a todos!" />
+          </div>
+
+          <div id="mensajeError" class="msg msg-error" style="display:none;"></div>
+          <div id="mensajeExito" class="msg msg-exito" style="display:none;"></div>
+
+          <button type="submit" class="btn-submit">
+            <img src="images/pokeball.webp" alt="Pokeball" class="btn-icon"> Generar Tarjetas
+          </button>
+
+        </form>
+      </div>
+
+    </main>
+
+    <section class="card-section" id="cardSection" style="display:none;">
+      
+      <div class="cards-container">
+        <div class="trainer-card" id="trainerCard">
+          <div class="card-hero" style="background-image: url('images/entrenadores.webp');"></div>
+          <div class="card-header">
+            <div class="card-avatar" id="cardAvatar"></div>
+            <div class="card-header-info">
+              <p class="card-label">ENTRENADOR POKÉMON</p>
+              <h2 class="card-nombre" id="cardNombre"></h2>
+              <p class="card-region" id="cardRegion"></p>
+            </div>
+            <div class="card-insignia" id="cardInsignia"></div>
+          </div>
+          <div class="card-footer">
+            <span class="card-id" id="cardId"></span>
+            <span class="card-logo">⬟ PokéDev</span>
+          </div>
+        </div>
+
+        <div class="poke-card" id="pokeCard">
+          <div class="poke-hero" style="background-image: url('images/Pokemon.jpg');"></div>
+          <div class="poke-header">
+            <div class="poke-avatar" id="pokeAvatar"></div>
+            <div class="poke-header-info">
+              <p class="card-label">POKÉMON INSIGNIA</p>
+              <h2 class="card-nombre" id="pokeNombreRender"></h2>
+              <p class="poke-nivel" id="pokeNivelRender"></p>
+            </div>
+            <div class="poke-tipo-badge" id="pokeTipoRender"></div>
+          </div>
+          <div class="card-body">
+            <div class="card-stat">
+              <span class="stat-label">MOVIMIENTO ESTRELLA</span>
+              <span class="stat-value" id="pokeMovimientoRender"></span>
+            </div>
+            <div class="card-frase" id="pokeFraseRender"></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-reset" id="btnReset">↩ Crear otras tarjetas</button>
+
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const selectWrappers = document.querySelectorAll(".custom-select-wrapper");
+      
+      selectWrappers.forEach(selectWrapper => {
+        const select = selectWrapper.querySelector(".custom-select");
+        const customOptions = select.querySelectorAll(".custom-option");
+        const triggerSpan = select.querySelector(".custom-select-trigger span");
+        const hiddenSelect = selectWrapper.querySelector("select[style='display:none;']");
+
+        select.addEventListener("click", () => {
+          document.querySelectorAll(".custom-select.open").forEach(openSelect => {
+            if (openSelect !== select) openSelect.classList.remove("open");
+          });
+          select.classList.toggle("open");
+        });
+
+        customOptions.forEach(option => {
+          option.addEventListener("click", () => {
+            const value = option.getAttribute("data-value");
+            const html = option.innerHTML;
+            triggerSpan.innerHTML = html;
+            hiddenSelect.value = value;
+            hiddenSelect.dispatchEvent(new Event("change"));
+            
+            customOptions.forEach(opt => opt.classList.remove("selected"));
+            option.classList.add("selected");
+          });
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest('.custom-select')) {
+          document.querySelectorAll(".custom-select.open").forEach(openSelect => {
+            openSelect.classList.remove("open");
+          });
+        }
+      });
+
+      const muteToggle = document.getElementById("muteToggle");
+      const iconMuted = document.getElementById("icon-muted");
+      const iconUnmuted = document.getElementById("icon-unmuted");
+      const muteText = document.getElementById("muteText");
+      const iframeElement = document.getElementById("bg-video");
+      let isMuted = true;
+
+      muteToggle.addEventListener("click", () => {
+        if (isMuted) {
+          iframeElement.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+          iconMuted.style.display = "none";
+          iconUnmuted.style.display = "block";
+          muteText.textContent = "Silenciar";
+          muteToggle.classList.remove("pulse-anim");
+          isMuted = false;
+        } else {
+          iframeElement.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+          iconMuted.style.display = "block";
+          iconUnmuted.style.display = "none";
+          muteText.textContent = "🎵 Muteado";
+          isMuted = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
