@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitBurger - Punto de Venta</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-bitburger sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="logo-circle me-2">
+                    <i class="bi bi-shop"></i>
+                </div>
+                <div>
+                    <span class="brand-name">BitBurger</span>
+                    <small class="d-block text-warning fw-bold" style="font-size: 0.7rem; margin-top: -5px;">PUNTO DE
+                        VENTA</small>
+                </div>
+            </a>
+            <div class="d-flex align-items-center">
+                <span class="badge bg-success px-3 py-2">
+                    <i class="bi bi-clock-fill me-1"></i>
+                    Abierto 24/7
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+
+        <!-- Info Banner -->
+        <div class="alert alert-warning border-0 d-flex align-items-center mb-4 shadow-sm" role="alert">
+            <i class="bi bi-megaphone-fill fs-4 me-3"></i>
+            <div>
+                <strong>🎉 Promociones Activas:</strong> Usa el código <code>BIT10</code> para 10% OFF o
+                <code>HAPPYHOUR</code> para 20% OFF
+            </div>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Panel Izquierdo: Menú de Combos -->
+            <div class="col-lg-7">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-bitburger-secondary text-white">
+                        <h5 class="mb-0">
+                            <i class="bi bi-list-ul me-2"></i>
+                            Menú de Combos
+                        </h5>
+                    </div>
+                    <div class="card-body p-4">
+
+                        <div class="row g-3">
+
+                            <!-- Combo 1: Clásica -->
+                            <div class="col-md-6">
+                                <div class="combo-card">
+                                    <div class="combo-image-wrapper">
+                                        <img src="images/combo clasico.png" alt="Combo Clásica" class="combo-image">
+                                    </div>
+                                    <h6 class="combo-name">Combo Clásica</h6>
+                                    <p class="combo-description">Hamburguesa + Papas + Bebida</p>
+                                    <div class="combo-price">$8.500</div>
+                                    <button class="btn btn-add-combo" onclick="agregarCombo('Combo Clásica', 8500)">
+                                        <i class="bi bi-plus-circle-fill me-1"></i>
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Combo 2: Doble Carne -->
+                            <div class="col-md-6">
+                                <div class="combo-card">
+                                    <div class="combo-image-wrapper">
+                                        <img src="images/combo doble.png" alt="Combo Doble Carne" class="combo-image">
+                                    </div>
+                                    <h6 class="combo-name">Combo Doble Carne</h6>
+                                    <p class="combo-description">Doble Hamburguesa + Papas + Bebida</p>
+                                    <div class="combo-price">$12.000</div>
+                                    <button class="btn btn-add-combo"
+                                        onclick="agregarCombo('Combo Doble Carne', 12000)">
+                                        <i class="bi bi-plus-circle-fill me-1"></i>
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Combo 3: Mega -->
+                            <div class="col-md-6">
+                                <div class="combo-card combo-card-premium">
+                                    <div class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">
+                                        <i class="bi bi-star-fill"></i> Premium
+                                    </div>
+                                    <div class="combo-image-wrapper">
+                                        <img src="images/combo mega.png" alt="Combo Mega" class="combo-image">
+                                    </div>
+                                    <h6 class="combo-name">Combo Mega</h6>
+                                    <p class="combo-description">Triple Hamburguesa + Papas XL + Bebida XL</p>
+                                    <div class="combo-price">$15.500</div>
+                                    <button class="btn btn-add-combo" onclick="agregarCombo('Combo Mega', 15500)">
+                                        <i class="bi bi-plus-circle-fill me-1"></i>
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Combo 4: Kids -->
+                            <div class="col-md-6">
+                                <div class="combo-card">
+                                    <div class="combo-image-wrapper">
+                                        <img src="images/combo junior.png" alt="Combo Kids" class="combo-image">
+                                    </div>
+                                    <h6 class="combo-name">Combo Kids</h6>
+                                    <p class="combo-description">Mini Hamburguesa + Papas + Jugo + Juguete</p>
+                                    <div class="combo-price">$6.000</div>
+                                    <button class="btn btn-add-combo" onclick="agregarCombo('Combo Kids', 6000)">
+                                        <i class="bi bi-plus-circle-fill me-1"></i>
+                                        Agregar
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Derecho: Carrito y Pago -->
+            <div class="col-lg-5">
+
+                <!-- Carrito -->
+                <div class="card shadow-sm border-0 mb-3">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">
+                            <i class="bi bi-cart3 me-2"></i>
+                            Tu Pedido
+                        </h5>
+                    </div>
+                    <div class="card-body" style="min-height: 200px;">
+
+                        <!-- Mensaje inicial -->
+                        <div id="carritoVacio" class="text-center text-muted py-4">
+                            <i class="bi bi-cart-x fs-1 d-block mb-2"></i>
+                            <p class="mb-0">El carrito está vacío</p>
+                            <small>Agrega combos del menú</small>
+                        </div>
+
+                        <!-- Lista de items -->
+                        <div id="listaItems"></div>
+
+                        <!-- Subtotal -->
+                        <div id="subtotalArea" style="display: none;">
+                            <hr class="my-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-semibold">Subtotal:</span>
+                                <span class="fs-5 fw-bold text-bitburger" id="subtotalMostrado">$0</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Panel de Cupón y Pago -->
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-warning text-dark">
+                        <h6 class="mb-0">
+                            <i class="bi bi-tag-fill me-2"></i>
+                            Cupón de Descuento
+                        </h6>
+                    </div>
+                    <div class="card-body">
+
+                        <!-- Input de cupón -->
+                        <div class="mb-3">
+                            <label for="inputCupon" class="form-label small">Código de cupón:</label>
+                            <input type="text" class="form-control form-control-lg text-uppercase" id="inputCupon"
+                                placeholder="BIT10 o HAPPYHOUR">
+                            <div class="form-text">Códigos válidos: <code>BIT10</code> (10% OFF),
+                                <code>HAPPYHOUR</code> (20% OFF)
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- Resumen de Pago -->
+                        <div id="resumenPago" class="mb-3" style="display: none;">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span id="resumenSubtotal">$0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2 text-success">
+                                <span>Descuento:</span>
+                                <span id="resumenDescuento">$0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>IVA (19%):</span>
+                                <span id="resumenIVA">$0</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fs-5 fw-bold">TOTAL:</span>
+                                <span class="fs-4 fw-bold text-success" id="resumenTotal">$0</span>
+                            </div>
+                        </div>
+
+                        <!-- Botón Pagar -->
+                        <button class="btn btn-success btn-lg w-100" id="btnPagar">
+                            <i class="bi bi-cash-coin me-2"></i>
+                            Procesar Pago
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-2">
+                <i class="bi bi-shop text-warning me-2"></i>
+                <strong>BitBurger</strong> - Sistema POS
+            </p>
+            <p class="text-muted small mb-0">
+                © 2026 Desarrollado por estudiantes de programación | Módulo 2 - Lección 2: Funciones
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script Principal -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
